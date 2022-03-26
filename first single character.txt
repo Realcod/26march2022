@@ -1,0 +1,28 @@
+/*
+Given a string, find its first non-repeating character
+*/
+#include<iostream>
+using namespace std;
+
+char singlecharacter(char input[]){
+	int frequency[256]={0};
+	for(int i=0;input[i]!='\0';i++){
+		frequency[input[i]]++;
+	}
+
+	for(int i=0;input[i]!='\0';i++){
+		if(frequency[input[i]]==1){
+			return input[i];
+		}
+	}
+	return '\0';
+}
+
+int main(){
+	char input[100],ch;
+	cout<<"Enter the character to know the first repeating character"<<endl;
+	cin.getline(input,100);
+
+	char single=singlecharacter(input);
+	cout<<single;
+}
